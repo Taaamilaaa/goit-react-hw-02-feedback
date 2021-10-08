@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; // ES6
 import styles from "./statistic.module.css"
 
 export function Statistics({
@@ -29,4 +30,12 @@ export function Statistics({
       </ul>
     </>
   );
+}
+
+Statistics.propTypes = {
+goodValue : PropTypes.number,
+  neutralValue: PropTypes.number,
+  badValue: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 }

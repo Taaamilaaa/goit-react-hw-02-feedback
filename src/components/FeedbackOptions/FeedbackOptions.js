@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'; // ES6
+
+
 import styles from './feedbackOptions.module.css'
 
 export function FeedbackOptions({ options, onLeaveFeedback }) {
@@ -15,4 +18,9 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
       })}
     </ul>
   );
+}
+
+FeedbackOptions.protoTypes = {
+  options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.array,
 }

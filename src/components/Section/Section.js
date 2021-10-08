@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'; // 
 import styles from "./section.module.css"
 
 export function Section({ title, children }) {
@@ -7,4 +8,9 @@ export function Section({ title, children }) {
             {children}
         </section>
     )
+}
+
+Section.propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.element,
 }
