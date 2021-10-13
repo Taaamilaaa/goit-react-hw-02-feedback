@@ -12,30 +12,14 @@ class App extends React.Component {
     bad: 0,
   };
 
-  feedbackGoodChoice = () => {
-    this.setState((prevState) => {
-      const { good } = this.state;
+  feedbackChoice = (feedback) => {
+    this.setState((prevState) => {      
       return {
-        good: Number(`${Number(good) + 1}`),
+        [feedback]: prevState[feedback] + 1,
       };
     });
   };
-  feedbackNeutralChoice = () => {
-    this.setState((prevState) => {
-      const { neutral } = this.state;
-      return {
-        neutral: Number(`${Number(neutral) + 1}`),
-      };
-    });
-  };
-  feedbackBadChoice = () => {
-    this.setState((prevState) => {
-      const { bad } = this.state;
-      return {
-        bad: Number(`${Number(bad) + 1}`),
-      };
-    });
-  };
+  
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     const total = Number(`${Number(good) + Number(neutral) + Number(bad)}`);
@@ -51,17 +35,15 @@ class App extends React.Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+     const options = Object.keys(this.state);
     return (
       <section className={styles.container}>
         <div className={styles.feedback}>
           <Section title={"Please leave your feedback"}>
             <FeedbackOptions
-              options={["Good", "Neutral", "Bad"]}
-              onLeaveFeedback={[
-                this.feedbackGoodChoice,
-                this.feedbackNeutralChoice,
-                this.feedbackBadChoice,
-              ]}
+              options={options}
+              onLeaveFeedback={this.feedbackChoice}
+                
             />
           </Section>
           {this.countTotalFeedback() > 0 ? (

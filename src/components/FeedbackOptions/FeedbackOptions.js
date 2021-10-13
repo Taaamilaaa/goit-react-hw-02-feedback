@@ -9,9 +9,10 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
     <ul className={styles.feedbackList}>
           {options.map((option) => {            
         return (
-          <li className={styles.feedbackItem} key={option}>
-            <button className={styles.button} onClick={onLeaveFeedback[el += 1]}>
-              {option}
+          <li className={styles.feedbackItem} >
+            <button className={styles.button} key={option} type="button" onClick={onLeaveFeedback(options)}>
+                     {/* {option.charAt(0).toUpperCase() + option.slice(1)} */}
+
             </button>
           </li>
         );
@@ -19,6 +20,8 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
     </ul>
   );
 }
+
+ 
 
 FeedbackOptions.protoTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
