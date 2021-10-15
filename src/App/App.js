@@ -34,8 +34,8 @@ class App extends React.Component {
   };
 
   render() {
+    const options = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
-     const options = Object.keys(this.state);
     return (
       <section className={styles.container}>
         <div className={styles.feedback}>
@@ -43,7 +43,6 @@ class App extends React.Component {
             <FeedbackOptions
               options={options}
               onLeaveFeedback={this.feedbackChoice}
-                
             />
           </Section>
           {this.countTotalFeedback() > 0 ? (
