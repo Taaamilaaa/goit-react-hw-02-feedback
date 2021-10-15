@@ -22,14 +22,14 @@ class App extends React.Component {
   
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
-    const total = Number(`${Number(good) + Number(neutral) + Number(bad)}`);
+    const total = good + neutral + bad;
     return total;
   };
   countPositiveFeedbackPercentage = () => {
     const { good } = this.state;
     const positivePercentage = Math.round(
-      (100 * Number(good)) / this.countTotalFeedback()
-    );
+      (100 * good / this.countTotalFeedback()
+    ))
     return positivePercentage;
   };
 
